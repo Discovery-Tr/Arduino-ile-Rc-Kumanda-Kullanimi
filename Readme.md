@@ -8,7 +8,7 @@ https://www.kirmiziyuz.com/arduino/arduino-ile-rc-kumanda-kullanimi.html
 </p>
 
 <p align="center">
-  <a href="www.youtube.com/watch?v=yP7OLZXwMiY">
+  <a href="https://www.youtube.com/watch?v=yP7OLZXwMiY" target="_blank">
   <img src="https://kirmiziyuz.com/wp-content/uploads/2021/06/youtube.jpg"/>
  </a>
 </p>
