@@ -1,28 +1,46 @@
-ARDUİNO İLE RC KUMANDA KULLANIMI
+# ARDUİNO İLE RC KUMANDA KULLANIMI
 
 
+https://www.kirmiziyuz.com/arduino/arduino-ile-rc-kumanda-kullanimi.html
+
+<p align="center">
+  <img width="508" height="385" src="https://kirmiziyuz.com/wp-content/uploads/2021/06/Arduino_ile_Rc_Kumanda_Kullanimi_1.jpg">
+</p>
+
+<p align="center">
+  <a href="www.youtube.com/watch?v=yP7OLZXwMiY">
+  <img src="https://kirmiziyuz.com/wp-content/uploads/2021/06/youtube.jpg"/>
+ </a>
+</p>
+
+                                     
 İhtiyacım üzerine  Drone ve Rc araçlarda kullanılan FYLSKY kumanda mı Arduino veya NodeMCU da nasıl kullanabilirim diye bir araştırmada bulundum. Fakat tam istediğim bilgiye bir türlü ulaşamadım. Yabancı kaynaklar ve yerli kaynaklarda bulamadığımdan bu yazıyı paylaşıyorum. Umarım işinize yarar.
 
  
 
 Öncelikle Arduino veya NodeMCU bağlantılarını yapalım.
-
-
+<p align="center">
+  <img src="https://kirmiziyuz.com/wp-content/uploads/2021/06/Arduino_ile_Rc_Kumanda_Kullanimi.jpg"/>
+</p>
 
 Flysky kumandasının iki kolu yani CH2 ve CH3  kanalına bağlı olan yön çubuklarını NodeMCU ile bağladım. Farklı pinlerini kullanmak için yine aynı programı kullanabilirsiniz. Bir Tank projemde kullanacağım için bana bu iki kanal yeterli olacak.
 
 Öncelikle kol bağlantılarından gelen minimum ve max. değerleri okuyarak buna göre hız kontrolü yapacağım.
 
-
+<p align="center">
+  <img src="https://kirmiziyuz.com/wp-content/uploads/2021/06/Sinyal_Tablo.jpg"/>
+</p>
 
 Ölçüm yaparken tek kanal için çalışmanızı öneririm. Sağ ve Sol motoru bağlayacağım kanalları tek tek ölçtüm minimum ve max. değerlerini birde çubupu bırakında orta değeri olan durma değerini ölçtüm ve bu değerleri dur,  yavaş orta ve hızlı şeklinde ortak aralıklara bölerek hız kontrolü için hazır hale getirdim.
 
+# Nodemcu Pinout.
+<p align="center">
+  <img src="https://kirmiziyuz.com/wp-content/uploads/2021/06/NodeMCUv3.0-pinout.jpg"/>
+</p>
 
+# Ölçüm için gerekli Kodlar:
 
-Nodemcu Pinout.
-
-Ölçüm için gerekli Kodlar:
-
+```
 #define Sag_Motor 14 //D5 NodeMCU pinout
 #define Sol_Motor 12 //D6 NodeMCU pinout
 int ch2=0;
@@ -45,8 +63,11 @@ Serial.println(ch3);
 delay(100); //Bu işlem 100 milisaniye aralıklarla yapılır.
 
 }
+```
 Kanalları Tektek ayarladıktan sonra Motorun hız kontrolü için hazırladığım kod ta aşağıda sunuyorum.
 
+# Motor hız kontrolü için gerekli Kodlar:
+```
 #define Sag_Motor 14 //D5
 #define Sol_Motor 12 //D6
 int ch2 = 0;
@@ -151,3 +172,4 @@ break;
 default: printf(""); break;
 }
 }
+```
